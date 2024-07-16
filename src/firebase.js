@@ -7,12 +7,12 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyDsGtYeRfKa6XoZPHQpaLMpjdV044fkcuk",
-  authDomain: "calorie-auth-b01d4.firebaseapp.com",
-  projectId: "calorie-auth-b01d4",
-  storageBucket: "calorie-auth-b01d4.appspot.com",
-  messagingSenderId: "452334652761",
-  appId: "1:452334652761:web:ebdb1906909d660ffad048",
+  apiKey: "",
+  authDomain: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
 };
 
 // Initialize Firebase
