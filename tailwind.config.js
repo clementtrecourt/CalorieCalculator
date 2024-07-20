@@ -5,7 +5,11 @@ module.exports = withMT({
     "./src/**/*.{js,jsx,ts,tsx}", // Add paths to all of your template files
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: ["Poppins", "sans-serif"],
+      },
+    },
+    plugins: [],
   },
-  plugins: [],
 });
