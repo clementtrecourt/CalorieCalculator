@@ -1,9 +1,11 @@
-import React from "react";
-import { Button } from "@material-tailwind/react";
 import phone from "../assets/img/jakob-owens-WUmb_eBrpjs-unsplash.jpg";
-import green from "../assets/img/green.png";
-import white from "../assets/img/white.png";
-import red from "../assets/img/red.png";
+import berries from "../assets/img/berries.jpg";
+import {
+  IconDeviceWatch,
+  IconTrendingUp,
+  IconCalculator,
+} from "@tabler/icons-react";
+
 const Home = () => {
   return (
     <div className="px-[300px]">
@@ -16,7 +18,9 @@ const Home = () => {
               before with eat.che<span className="text-[#e67361]">.</span>
             </h1>
             <div className="flex justify-center lg:justify-start space-x-4 mt-8">
-              <Button>Discover</Button>
+              <button className="hidden ml-6 lg:inline-block text-white p-2 px-4 rounded-full  bg-[#e67361]">
+                <a href="/calculator">Discover</a>
+              </button>
             </div>
           </div>
           <div className="lg:w-1/2 mt-12 lg:mt-0 flex justify-center"></div>
@@ -25,9 +29,9 @@ const Home = () => {
       <section className="flex  mx-auto align-middle justify-center">
         <div className=" overflow-hidden mr-20">
           <img
-            src={phone}
+            src={berries}
             alt=""
-            className=" w-[45rem] h-[45rem] object-scale-down  drop-shadow-md m-auto rounded-xl"
+            className=" w-[45rem] h-[45rem]  shadow-lg object-scale-down  drop-shadow-md m-auto rounded-xl"
           />
         </div>
         <div className="flex flex-col align-middle justify-center">
@@ -72,19 +76,31 @@ const Home = () => {
             </h2>
           </div>
           <div className="flex flex-col align-middle space-y-8 w-2/3">
-            <div className=" pl-4 py-4 shadow-md rounded-lg">
-              <p>Easily connect you account with popular wearable</p>
-            </div>
-            <div className=" pl-4 py-4 shadow-md rounded-lg	">
-              <p>
+            <div className=" pl-4 py-4 shadow-md rounded-lg flex">
+              <div className="bg-[#edeee8] rounded-full flex align-middle items-center justify-center w-1/12 h-1/12">
+                <IconDeviceWatch size={22} />
+              </div>
+              <p className="ml-5">
                 Don't bother with manual logging we automatically capture your
                 data
               </p>
             </div>
-            <div className=" pl-4 py-4 shadow-md rounded-lg">
-              <p>
-                Our Calorie Calculator is up-to-date with scientific data to
-                ensure the best results
+            <div className=" pl-4 py-4 shadow-md rounded-lg flex">
+              <div className="bg-[#f7d5d0] rounded-full flex align-middle items-center justify-center w-1/12 h-1/12">
+                <IconTrendingUp size={22} />
+              </div>
+              <p className="ml-5">
+                Don't bother with manual logging we automatically capture your
+                data
+              </p>
+            </div>
+            <div className=" pl-4 py-4 shadow-md rounded-lg flex h-1/2">
+              <div className="bg-[#f6f6f6] rounded-full flex align-middle items-center justify-center w-1/12 h-1/12">
+                <IconCalculator size={22} />
+              </div>
+              <p className="ml-5">
+                Don't bother with manual logging we automatically capture your
+                data
               </p>
             </div>
           </div>

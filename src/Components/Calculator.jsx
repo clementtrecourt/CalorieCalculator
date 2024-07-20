@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import { ChevronDown } from "lucide-react";
 import { db, auth } from "../firebase";
@@ -151,7 +151,26 @@ const CalorieCalculator = () => {
       console.error("Error adding document: ", error);
     }
   };
+  const dropdownRef = useRef(null);
+  const activityDropdownRef = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setIsOpen(false);
+      }
+      if (
+        activityDropdownRef.current &&
+        !activityDropdownRef.current.contains(event.target)
+      ) {
+        setIsOpenActivity(false);
+      }
+    };
 
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
   return (
     <div className="flex h-screen bg-gradient-to-br from-purple-500 to-orange-500">
       <div className="m-auto  bg-[#fff] bg-opacity-10 rounded-3xl shadow-xl  flex  relative ">
@@ -192,7 +211,7 @@ const CalorieCalculator = () => {
               onChange={(e) => setWeight(e.target.value)}
             />
           </div>
-          <div className="mb-6 relative">
+          <div className="mb-6 relative" ref={activityDropdownRef}>
             <button
               className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white flex justify-between items-center"
               onClick={toggleDropdownActivity}
@@ -222,7 +241,7 @@ const CalorieCalculator = () => {
               </div>
             )}
           </div>
-          <div className="mb-6 relative">
+          <div className="mb-6 relative" ref={dropdownRef}>
             <button
               className="w-full px-4 py-2 bg-transparent border border-white rounded-full text-white flex justify-between items-center"
               onClick={toggleDropdown}
@@ -254,7 +273,7 @@ const CalorieCalculator = () => {
           </div>
 
           <button
-            className="w-full px-6 py-3 bg-black text-white rounded-full font-semibold text-lg"
+            className="w-full px-6 py-3 bg-white text-black rounded-full font-semibold text-lg"
             onClick={calculateCalories}
           >
             Calculate →
